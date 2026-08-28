@@ -21,7 +21,7 @@ $border: $dark, $frame-bg: $light) {
     // border, with borderType "thin"
     &.border-type-thin {
       .board {
-        .border {
+        .cm-chessboard-border {
           stroke: $border;
           stroke-width: 0.7%;
           fill: $dark;
@@ -30,7 +30,7 @@ $border: $dark, $frame-bg: $light) {
     }
     &.border-type-none {
       .board {
-        .border {
+        .cm-chessboard-border {
           stroke: $border;
           stroke-width: 0;
           fill: $dark;
@@ -40,11 +40,11 @@ $border: $dark, $frame-bg: $light) {
     // border, with borderType "frame"
     &.border-type-frame {
       .board {
-        .border {
+        .cm-chessboard-border {
           fill: $frame-bg;
           stroke: none;
         }
-        .border-inner {
+        .cm-chessboard-border-inner {
           fill: $dark;
           stroke: $border;
           stroke-width: 0.7%;

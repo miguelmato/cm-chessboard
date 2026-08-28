@@ -195,13 +195,13 @@ export class ChessboardView {
         }
 
         let boardBorder = Svg.addElement(this.boardGroup, "rect", {width: this.width, height: this.height})
-        boardBorder.setAttribute("class", "border")
+        boardBorder.setAttribute("class", "cm-chessboard-border")
         if (this.chessboard.props.style.borderType === BORDER_TYPE.frame) {
             const innerPos = this.borderSize
             let borderInner = Svg.addElement(this.boardGroup, "rect", {
                 x: innerPos, y: innerPos, width: this.width - innerPos * 2, height: this.height - innerPos * 2
             })
-            borderInner.setAttribute("class", "border-inner")
+            borderInner.setAttribute("class", "cm-chessboard-border-inner")
         }
 
         for (let i = 0; i < 64; i++) {

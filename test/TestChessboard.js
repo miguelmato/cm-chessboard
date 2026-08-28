@@ -5,7 +5,7 @@
  */
 
 import {describe, it, assert} from "../node_modules/teevi/src/teevi.js"
-import {PIECE, COLOR, Chessboard} from "../src/Chessboard.js"
+import {PIECE, COLOR, BORDER_TYPE, Chessboard} from "../src/Chessboard.js"
 import {FEN} from "../src/model/Position.js"
 
 describe("TestChessboard", () => {
@@ -27,6 +27,23 @@ describe("TestChessboard", () => {
         assert.equal(chessboard.view.container.childNodes.length, 1)
         chessboard.destroy()
         assert.equal(chessboard.state, undefined)
+    })
+
+    it("should namespace border classes to avoid utility CSS collisions", () => {
+        const chessboard = new Chessboard(document.getElementById("TestBoard"), {
+            assetsUrl: "../assets/",
+            style: {borderType: BORDER_TYPE.frame}
+        })
+        assert.equal(chessboard.view.boardGroup.querySelector(".border"), null)
+        assert.equal(
+            chessboard.view.boardGroup.querySelector(".cm-chessboard-border").tagName,
+            "rect"
+        )
+        assert.equal(
+            chessboard.view.boardGroup.querySelector(".cm-chessboard-border-inner").tagName,
+            "rect"
+        )
+        chessboard.destroy()
     })
 
     it("should create and destroy a chessboard", () => {
